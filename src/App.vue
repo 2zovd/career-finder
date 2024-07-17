@@ -5,7 +5,7 @@
 <script>
 import MainNav from '@/components/MainNav.vue'
 export default {
-  name: "App",
+  name: 'App',
   components: {
     MainNav
   }
