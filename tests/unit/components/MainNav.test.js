@@ -5,14 +5,28 @@ import MainNav from '@/components/MainNav.vue'
 
 describe('MainNav', () => {
   it('displays company name', () => {
-    render(MainNav)
+    render(MainNav, {
+      global: {
+        stubs: {
+          // collection of the thing we want to replace
+          FontAwesomeIcon: true
+        }
+      }
+    })
     screen.getByText('Bobo Careers')
     const companyName = screen.getByText('Bobo Careers')
     expect(companyName).toBeInTheDocument()
   })
 
   it('displays menu items for navigation', () => {
-    render(MainNav)
+    render(MainNav, {
+      global: {
+        stubs: {
+          // collection of the thing we want to replace
+          FontAwesomeIcon: true
+        }
+      }
+    })
     // role, is good way to check
     // we can find the role in the list which was printed to test console
     // or in browser roles
@@ -30,9 +44,16 @@ describe('MainNav', () => {
 
   describe('when the use is logs in', () => {
     it('displays user profile image', async () => {
-      render(MainNav)
+      render(MainNav, {
+        global: {
+          stubs: {
+            // collection of the thing we want to replace
+            FontAwesomeIcon: true
+          }
+        }
+      })
 
-      screen.debug()
+      // screen.debug() // display in console
       // screen.getByRole("img")
       let profileImage = screen.queryByRole('img', {
         name: /user profile image/i // i - case insensetive
